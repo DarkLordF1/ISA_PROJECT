@@ -1,1 +1,20 @@
-generalTesting/sort_trace.txt
+# Binaries
+*.exe
+*.out
+
+# Simulation outputs
+generalTesting/*.txt
+
+# Logs
+*.log
+
+# Build artifacts
+*.o
+*.bin
+*.elf
+
+# OS junk
+.DS_Store
+
+# VS Code
+.vscode/
