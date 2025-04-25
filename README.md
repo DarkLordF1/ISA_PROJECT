@@ -82,4 +82,3 @@ Feel free to open issues or pull requests if you're interested in contributing o
 🧾 License
 
 This project is for academic use under Tel Aviv University coursework. Not licensed for commercial distribution.
-```
