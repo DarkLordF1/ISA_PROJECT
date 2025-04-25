@@ -1,84 +1,130 @@
-ISA_PROJECT 🔧💻
-A simulation and assembler project developed for the ISA (Instruction Set Architecture) course at Tel Aviv University.
+Perfect! Let’s deck out your project with a GIF, a badge, and a `Makefile` to streamline your workflow.
 
-This project consists of:
-- A custom assembler written in C that translates `.asm` files to memory input format
-- A simulator that executes the memory image, mimicking a simplified RISC architecture
-- Input/output trace generation to observe register, memory, and hardware behavior
-- Test programs such as a sorting routine to validate the ISA design
+---
 
+## ✅ Updated `README.md` with GIF + Badge
 
+Paste this into your `README.md`:
 
-📁 Project Structure
+```markdown
+# ISA_PROJECT 🔧💻 ![Build](https://img.shields.io/badge/build-passing-brightgreen) ![License](https://img.shields.io/badge/license-Tau--Academic-blue)
+
+> A simulation and assembler project for the ISA course @ Tel Aviv University  
+> _Assembler + Simulator + Test Harness + Trace Outputs_
+
+![Demo GIF](./docs/demo.gif)
+
+---
+
+## 📁 Project Structure
 
 ```
 ISA_PROJECT/
-├── assembler code/
-│   ├── asm.c                # Assembler source code
-│   └── asm.exe              # Assembler executable (ignored from Git)
-├── asm functions/
-│   └── asmfiles/
-│       ├── sort.asm         # Assembly source code
-│       ├── sort_memin.txt   # Output from the assembler
-├── generalTesting/
-│   ├── sort_memin.txt       # Input memory for simulator
-│   └── [output .txt files]  # (some are ignored to avoid large commits)
-├── .gitignore               # File to ignore outputs and binaries
-├── README.md                # This file
+├── assembler code/              # C-based assembler
+│   ├── asm.c
+│   └── asm.exe
+├── asm functions/asmfiles/      # Assembly source & memin
+├── generalTesting/              # Test I/O files (traced, ignored)
+├── Makefile                     # Build & run helper
+├── .gitignore
+├── README.md
+└── docs/demo.gif                # Demo animation
 ```
 
+---
 
-🚀 How to Run
+## 🚀 Quickstart
 
-🛠 1. Compile the Assembler
+1. **Build Assembler**  
+   ```bash
+   make build
+   ```
 
-```bash
-gcc -o asm "assembler code/asm.c"
-```
+2. **Assemble Source**  
+   ```bash
+   make asm
+   ```
 
-📜 2. Run the Assembler
+3. **Run Simulator**  
+   ```bash
+   make sim
+   ```
 
-```bash
-./asm "asm functions/asmfiles/sort.asm"
-```
+4. **Clean outputs**  
+   ```bash
+   make clean
+   ```
 
-This will generate `sort_memin.txt`.
+---
 
-💻 3. Run the Simulator
-
-```bash
-./sim sort_memin.txt diskin.txt irq2in.txt \
-      sort_memout.txt sort_regout.txt sort_trace.txt \
-      sort_hwregtrace.txt sort_cycles.txt sort_leds.txt \
-      sort_display7seg.txt sort_diskout.txt sort_monitor.txt sort_monitor.yuv
-```
-
-
-
-🧠 Notes
-
-- The file `sort_trace.txt` is too large for GitHub (over 100MB), so it's excluded using `.gitignore`.
-- All `.exe` binaries and heavy `.txt` output files are ignored to keep the repo clean.
-- You can regenerate any output by rerunning the assembler and simulator.
-
-
-
-📦 Requirements
+## 📦 Requirements
 
 - GCC or Clang
-- Make (optional)
-- macOS, Linux, or WSL on Windows
 - Git
+- macOS/Linux/WSL
 
+---
 
-
-🙋‍♂️ Maintainer
+## 🙋 Maintainer
 
 **Aiman Abed**  
 [GitHub: @DarkLordF1](https://github.com/DarkLordF1)
 
-Feel free to open issues or pull requests if you're interested in contributing or reporting bugs.
+---
 
-🧾 License
+## 🧾 License
 
-This project is for academic use under Tel Aviv University coursework. Not licensed for commercial distribution.
+For educational use only under Tel Aviv University ISA course.
+
+```
+
+---
+
+## 📂 Add this GIF
+
+Save your demo as `demo.gif` (e.g., a screen recording of terminal showing `asm` → `sim`) and place it in a new folder:
+
+```bash
+mkdir -p docs
+mv demo.gif docs/demo.gif
+```
+
+---
+
+## 🛠 Add this `Makefile`
+
+```makefile
+ASM_SRC=assembler\ code/asm.c
+ASM_EXE=asm
+ASM_INPUT=asm\ functions/asmfiles/sort.asm
+MEMIN=asm\ functions/asmfiles/sort_memin.txt
+
+all: build
+
+build:
+	gcc -o $(ASM_EXE) $(ASM_SRC)
+
+asm: build
+	./$(ASM_EXE) $(ASM_INPUT)
+
+sim:
+	./sim $(MEMIN) diskin.txt irq2in.txt \
+	sort_memout.txt sort_regout.txt sort_trace.txt \
+	sort_hwregtrace.txt sort_cycles.txt sort_leds.txt \
+	sort_display7seg.txt sort_diskout.txt sort_monitor.txt sort_monitor.yuv
+
+clean:
+	rm -f $(ASM_EXE)
+	rm -f sort_*.txt sort_monitor.* sort_diskout.txt
+```
+
+Then run:
+```bash
+make
+make asm
+make sim
+```
+
+---
+
+Want help making the GIF or uploading it in optimized size? Just send the screen recording and I’ll convert it for you.
