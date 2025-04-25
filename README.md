@@ -1,12 +1,5 @@
-Perfect! Let’s deck out your project with a GIF, a badge, and a `Makefile` to streamline your workflow.
 
----
 
-## ✅ Updated `README.md` with GIF + Badge
-
-Paste this into your `README.md`:
-
-```markdown
 # ISA_PROJECT 🔧💻 ![Build](https://img.shields.io/badge/build-passing-brightgreen) ![License](https://img.shields.io/badge/license-Tau--Academic-blue)
 
 > A simulation and assembler project for the ISA course @ Tel Aviv University  
@@ -124,7 +117,3 @@ make
 make asm
 make sim
 ```
-
----
-
-Want help making the GIF or uploading it in optimized size? Just send the screen recording and I’ll convert it for you.
